@@ -2,3 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Contenedor de tarea */
+
+.tarea-contenedor{
+    /*bg-default-task my-2 rounded text-white px-4 py-2 flex justify-between items-center*/
+    background-color: #532b22;
+    margin: 0.5rem 0;
+    border-radius: 0.25rem;
+    color: white;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Tarea completada */
+
+.completada{
+    background-color: #5a01a7;
+    text-decoration: line-through;
+}

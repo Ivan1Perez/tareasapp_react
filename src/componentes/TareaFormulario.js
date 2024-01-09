@@ -1,22 +1,40 @@
 import React from 'react'
 import { useState } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 
-const TareaFormulario = () => {
+const TareaFormulario = (props) => {
 
-  const [task, setTask] = useState('');
+  const [input, setInput] = useState('');
 
-  const handleChange = (event) => {
-    setTask(event.target.value);
-  };
+  const manejarCambio = (e) => {
+    setInput(e.target.value);
+  }
 
-  const sendTask = () => {
-    return task;
+  const manejarEnvio = (e) => {
+    e.preventDefault();
+
+    const nuevaTarea = {
+      id: uuidv4(),
+      texto: input,
+      completada: false
+    }
   }
 
   return (
-    <form className='flex justify-center'>
-      <input onChange={handleChange} type='text' name='tarea' placeholder='Añade una nueva tarea...' className='p-2 border-2 border-default-task rounded-s' />
-      <input onSubmit={sendTask} type="submit" className=' text-white p-2 bg-default-task cursor-pointer rounded-e' />
+    <form
+      className='flex justify-center'
+      onSubmit={manejarEnvio}>
+      <input
+        type='text'
+        name='texto'
+        placeholder='Escribe una tarea...'
+        className='p-2 border-2 border-default-task rounded-s'
+        onChange={manejarCambio}
+      />
+      <input
+        type="submit"
+        value='Agregar Tarea'
+        className=' text-white p-2 bg-default-task cursor-pointer rounded-e' />
     </form>
   )
 }

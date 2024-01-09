@@ -7,7 +7,6 @@ function App() {
       <div className='flex justify-center mt-[6rem]'>
         <img 
           src={titulo}
-          //className={titulo}
           alt='imagen título'
         />
       </div>

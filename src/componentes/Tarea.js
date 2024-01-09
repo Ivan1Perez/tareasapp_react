@@ -1,11 +1,15 @@
 import React from 'react'
 import { FaDeleteLeft } from "react-icons/fa6";
 
-const Tarea = ({texto}) => {
+const Tarea = ({id, texto, completada, completarTarea, eliminarTarea}) => {
   return (
-    <div className='bg-default-task my-2 rounded text-white px-4 py-2 flex justify-between items-center'>
-      <span>{texto}</span>
-      <span><FaDeleteLeft /></span>
+    <div className={completada ? 'tarea-contenedor completada' : 'tarea-contenedor'}>
+      <span onClick={() => completarTarea(id)}>
+        {texto}
+        </span>
+      <span onClick={() => eliminarTarea(id)}>
+        <FaDeleteLeft />
+        </span>
     </div>
   )
 }
