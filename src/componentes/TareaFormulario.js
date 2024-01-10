@@ -18,6 +18,8 @@ const TareaFormulario = (props) => {
       texto: input,
       completada: false
     }
+
+    props.onSubmit(nuevaTarea);
   }
 
   return (
